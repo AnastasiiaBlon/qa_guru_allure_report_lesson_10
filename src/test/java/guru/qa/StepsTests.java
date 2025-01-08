@@ -2,6 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -16,6 +17,7 @@ public class StepsTests {
     private static String TEXT = "Welcome to issues!";
 
     @Test
+    @DisplayName("Lambda steps via  step (name, () -> {})")
     public void testLambdaStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -42,6 +44,7 @@ public class StepsTests {
     }
 
     @Test
+    @DisplayName("Steps with @Step annotation")
     public void testAnnotatedStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         WebSteps steps = new WebSteps();
